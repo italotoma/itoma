@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" >
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Agregar Autores</title>
+</head>
+<body>
+
+
+<div class="container">
+    <h3>Agregar Autores</h3>
+
+    <div>
+
+        <form action="#" method="post"
+              th:object="${author}"
+              th:action="@{/authors/save}"
+        >
+
+            <div class="form-group">
+                <label for="dni"># de DNI</label>
+                <input type="text" class="class-controller"
+                       id="dni" placeholder="ingrese el numero de DNI"
+                       th:field="*{dni}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="class-controller"
+                       id="name" placeholder="ingrese el nombre"
+                       th:field="*{firstName}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="lastNameFather">Apellido paterno</label>
+                <input type="text" class="class-controller"
+                       id="lastNameFather" placeholder="ingrese el apellido"
+                       th:field="*{lastNameFather}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="lastNameMother">Apellido materno</label>
+                <input type="text" class="class-controller"
+                       id="lastNameMother" placeholder="ingrese el apellido"
+                       th:field="*{lastNameMother}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="age">Edad</label>
+                <input type="text" class="class-controller"
+                       id="age" placeholder="ingrese edad"
+                       th:field="*{age}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="biography">Biografía</label>
+                <input type="text" class="class-controller"
+                       id="biography" placeholder="ingrese biografía"
+                       th:field="*{biography}"
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Agregar Autor
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+</body>
+</html>

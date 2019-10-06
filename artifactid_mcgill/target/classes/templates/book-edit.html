@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" >
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Editar Libros</title>
+</head>
+<body>
+
+
+<div class="container">
+    <h3>Editar Libros</h3>
+
+    <div>
+
+        <form action="#" method="post"
+              th:object="${book}"
+              th:action="@{/books/update/{isbn} (isbn=${book.isbn})} "
+        >
+
+            <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input type="text" class="class-controller"
+                       id="isbn" placeholder="Ingrese el # ISBN"
+                       th:field="*{isbn}"
+                       disabled
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="title">Título</label>
+                <input type="text" class="class-controller"
+                       id="title" placeholder="Ingrese el título"
+                       th:field="*{title}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="summary">Resumen</label>
+                <input type="text" class="class-controller"
+                       id="summary" placeholder="Ingrese el resumen"
+                       th:field="*{summary}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="publicationDate">Fecha de publicación</label>
+                <input type="date" class="class-controller"
+                       id="publicationDate" placeholder="Ingrese la fecha de publicación"
+                       th:field="*{publicationDate}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="numberOfPages">Número de páginas</label>
+                <input type="text" class="class-controller"
+                       id="numberOfPages" placeholder="Ingrese el número de páginas"
+                       th:field="*{numberOfPages}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="language">Idioma</label>
+                <input type="text" class="class-controller"
+                       id="language" placeholder="Ingrese el idioma"
+                       th:field="*{language}"
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Editar Libro
+            </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

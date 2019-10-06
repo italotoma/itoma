@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" >
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Listado de Libros</title>
+</head>
+<body>
+
+
+<div class="container">
+    <h3>Listado de Libros</h3>
+    <div class="col-md-12">
+        <a th:href="@{/books/add}" class="btn btn-primary">Agregar libros</a>
+        <a th:href="@{/index}" class="btn btn-primary">Regresar</a>
+    </div>
+
+
+    <div th:switch="books" >
+        <div th:case="*">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col"># ISBN</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Resumen</th>
+                    <th scope="col">Fecha de Publicación</th>
+                    <th scope="col">Número de páginas</th>
+                    <th scope="col">Idioma</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="book : ${books}">
+                    <th scope="row" th:text="${book.isbn}" ></th>
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.summary}"></td>
+                    <td th:text="${book.publicationDate}"></td>
+                    <td th:text="${book.numberOfPages}"></td>
+                    <td th:text="${book.language}"></td>
+
+                    <td class="text-right">
+                        <div class="btn-group">
+
+                            <a th:href="@{/books/edit/{isbn}
+                                    (isbn=${book.isbn})}"
+                               class="btn btn-primary btn-sm">Editar</a>
+
+                            <a th:href="@{/books/delete/{isbn}
+                                (isbn=${book.isbn})}"
+                               class="btn btn-danger btn-sm">Eliminar</a>
+
+                        </div>
+                    </td>
+
+                </tr>
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+</body>
+</html>
